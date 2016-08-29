@@ -1,0 +1,9 @@
+---
+- name: Staring Install Roles
+  hosts: all
+  become: true
+
+  roles:
+    - git
+    - php
+    - composer
