@@ -1,4 +1,8 @@
 ---
-- name: Staring Install Debian Roles
-  roles:
-    -
+- name: Create /grpc directory
+  file: path=/grpc state=directory mode=0755
+
+- name: Install grpc via pecl
+  pear: name=pecl/grpc state=present
+  become: true
+
