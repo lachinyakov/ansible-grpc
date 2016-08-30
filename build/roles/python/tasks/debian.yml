@@ -1,0 +1,11 @@
+---
+
+- name: Install Python-PiP
+  apt: name={{ item }} state=present
+  with_items:
+    - python-pip
+
+- name: Intall pexpect
+  pip: name={{ item }}
+  with_items:
+    - pexpect
