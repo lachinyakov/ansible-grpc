@@ -10,18 +10,16 @@
   with_items:
     - php5
     - php5-dev
-    - php-pear
 
 - name: Download pear.phar
   get_url: url=http://pear.php.net/go-pear.phar dest=/tmp/go-pear.phar
 
 - name: Install Pear
-#  shell: 'php /tmp/go-pear.phar'
   expect:
     command: php /tmp/go-pear.phar
     responses:
-      "1-12, 'all' or Enter to continue: ": " "
-      "Would you like to alter php.ini </etc/php5/cli/php.ini>? [Y/n] : " : " y"
-      "Press Enter to continue: " : " "
-      "Thanks for using go-pear! " : " "
+      "1-12, 'all' or Enter to continue: ": " \n"
+      "Would you like to alter php.ini </etc/php5/cli/php.ini>? [Y/n] : " : "y \n"
+      "Press Enter to continue: " : "\n "
+  ignore_errors: yes
 

@@ -1,0 +1,6 @@
+---
+ - name: Cloning Protobuf repository
+   git: repo=https://github.com/stanley-cheung/Protobuf-PHP dest=/home/Protobuf-PHP
+
+ - name: Install
+

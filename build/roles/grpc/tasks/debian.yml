@@ -5,4 +5,3 @@
 - name: Install grpc via pecl
   pear: name=pecl/grpc state=present
   become: true
-
