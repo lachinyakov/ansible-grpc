@@ -1,0 +1,9 @@
+---
+
+ - name: Cloning repository
+   git: repo=https://github.com/grpc/grpc dest=/vagrant_data/example
+
+ - name: Composer install dependencies
+   composer: command=install working_dir=/vagrant_data/example/examples/php
+   become: yes
+

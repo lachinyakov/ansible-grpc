@@ -11,3 +11,4 @@
     - grpc
     - ruby
     - protobuf
+    - example
