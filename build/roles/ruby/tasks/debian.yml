@@ -1,0 +1,45 @@
+---
+
+ - name: Install Ruby Dependencies
+   apt: name={{ item }} state=present
+   with_items:
+     - git-core
+     - curl
+     - zlib1g-dev
+     - build-essential
+     - libssl-dev
+     - libreadline-dev
+     - libyaml-dev
+     - libsqlite3-dev
+     - sqlite3
+     - libxml2-dev
+     - libxslt1-dev
+     - libcurl4-openssl-dev
+     - python-software-properties
+     - libffi-dev
+
+ - name: Download Ruby
+   get_url: url=http://ftp.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.gz dest=/vagrant_data/build/ruby-2.3.1.tar.gz
+
+ - name: Unarchive Ruby archive
+   unarchive: src=ruby-2.3.1.tar.gz dest=/tmp
+
+ - name: Configure
+   command: ./configure
+   args:
+     chdir: /tmp/ruby-2.3.1/
+   become: yes
+
+ - name: Make
+   make: chdir=/tmp/ruby-2.3.1/
+   become: yes
+
+ - name:  Install Ruby
+   make: chdir=/tmp/ruby-2.3.1/ target=install
+   become: yes
+
+ - name: Install rake & ronn
+   gem: name={{ item }} state=latest
+   with_items:
+     - rake
+     - ronn

@@ -4,9 +4,10 @@
   become: true
 
   roles:
-#    - git
-#    - python
-#    - php
-#    - composer
-#    - grpc
+    - git
+    - python
+    - php
+    - composer
+    - grpc
+    - ruby
     - protobuf

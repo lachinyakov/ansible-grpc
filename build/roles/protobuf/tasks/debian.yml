@@ -2,5 +2,14 @@
  - name: Cloning Protobuf repository
    git: repo=https://github.com/stanley-cheung/Protobuf-PHP dest=/home/Protobuf-PHP
 
- - name: Install
+ - name: Configure pear for Protobuf
+   command: /usr/local/bin/rake pear:package version=1.0
+   args:
+     chdir: /home/Protobuf-PHP/
+   become: yes
 
+ - name: Install Protobuf
+   command: /usr/bin/pear install Protobuf-1.0.tgz
+   args:
+     chdir: /home/Protobuf-PHP/
+   become: yes
